@@ -1,28 +1,36 @@
+ {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+<script src="{% static 'js/datetime.js' %}"></script>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
      <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet"></link>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
 
+
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-        <a class="navbar-brand">訂單管理系統</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            {% block navbar%}
-              {% endblock %}
 
-          </ul>
-        </div>
-      </div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+            <a class="navbar-brand">訂單管理系統</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                {% block navbar%}
+                  {% endblock %}
+              </ul>
+            </div>
+          </div>
+            <div onload="startTime()" class="justify-content-end col-3" id="date">
+                 當前時間：<font color="#33FFFF"><span id="DateTime"></span></font>
+            </div>
     </nav>
+
+        <hr/>
         <div class="container">
             {% block content%}
             {% endblock %}

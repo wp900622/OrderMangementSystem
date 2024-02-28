@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from chartview import models, forms
 from django.db.models import Sum
-
+import datetime
 
 # Create your views here.
 def barchart(request):
