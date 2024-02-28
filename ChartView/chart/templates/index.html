@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block navbar%}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href=" ">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">訂單新增</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="#">訂單查看</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="product/">數據統計</a>
+            </li>
+{% endblock %}
+{% block content %}
+<div class="row mt-2" id="home">
+    <div class="col md-4 sm-4 lg-4">
+        <h3>Add Data</h3>
+        <hr>
+        <form action="." method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input class="btn btn-success" type="submit" value="Add Data"/>
+
+        </form>
+        </div>
+</div>
+{% endblock %}

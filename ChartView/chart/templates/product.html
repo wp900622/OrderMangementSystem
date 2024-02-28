@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% block navbar%}
+            <li class="nav-item">
+              <a class="nav-link"  href="../">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">訂單新增</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="#">訂單查看</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">數據統計</a>
+            </li>
+{% endblock %}
+{% block content %}
+<div class="row mt-2">
+
+
+
+
+    <div class="col-10 md-10 sm-10 lg-10" align="center">
+        <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'));
+
+      // 指定图表的配置项和数据
+      var option = {
+          xAxis: {
+            data: [{% for report in  reports %}'{{report.Year_Quarter}}',{% endfor %}]
+
+          },
+          yAxis: {},
+           tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'cross' }
+                  },
+           legend: {
+                     data: ['ProductA','ProductB','ProductC']
+
+           },
+          series: [
+            {
+                    name: 'ProductA',
+                      data: [{% for report in  reports %}'{{report.ProductA}}',{% endfor %}],
+                      type: 'line',
+                      stack: 'x'
+            },
+            {
+              name: 'ProductB',
+                      data: [{% for report in  reports %}'{{report.ProductB}}',{% endfor %}],
+                      type: 'line',
+                      stack: 'x'
+            },
+             {
+                      name: 'ProductC',
+                      data: [{% for report in  reports %}'{{report.ProductC}}',{% endfor %}],
+                      type: 'line',
+                      stack: 'x'
+
+                    }
+          ]
+        };
+
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    </script>
+    <div id="pie" style="width: 600px;height:400px;"></div>
+        <script type="text/javascript">
+          // 基于准备好的dom，初始化echarts实例
+          var myChart = echarts.init(document.getElementById('pie'));
+
+          // 指定图表的配置项和数据
+         var option = {
+              legend: {
+                     data: ['ProductA','ProductB','ProductC']
+
+           },
+              series: [
+                {
+                  type: 'pie',
+                  data: [
+                    {
+                      value:  {{producta}},
+                      name: 'ProductA'
+                    },
+                    {
+                      value:  {{productb}},
+                      name: 'ProductB'
+                    },
+                    {
+                      value:  {{productc}},
+                      name: 'ProductC'
+                    }
+                  ]
+                }
+              ]
+            };
+          // 使用刚指定的配置项和数据显示图表。
+          myChart.setOption(option);
+        </script>
+    </div>
+    </div>
+{% endblock %}
