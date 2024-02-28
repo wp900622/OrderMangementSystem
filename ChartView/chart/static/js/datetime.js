@@ -20,7 +20,7 @@
                 if(today.getDay()=== 4)   day   =   "星期四 "
                 if(today.getDay()=== 5)   day   =   "星期五 "
                 if(today.getDay()=== 6)   day   =   "星期六 "
-                document.getElementById('DateTime').innerHTML=yyyy+"-"+MM +"-"+ dd +" " + hh+":"+mm+":"+ss+"   " + day;
+                document.getElementById('nowDateTime').innerHTML=yyyy+"-"+MM +"-"+ dd +" " + hh+":"+mm+":"+ss+"   " + day;
                 setTimeout('startTime()',1000);//每一秒中重新載入startTime()方法
             }
 

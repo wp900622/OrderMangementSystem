@@ -18,6 +18,7 @@ class Report(forms.ModelForm):
         model = models.Report
         fields = '__all__'
         widgets = {
+
             'Year_Quarter': forms.TextInput(attrs={'class': 'form-control'}),
             'ProductA': forms.TextInput(attrs={'class': 'form-control'}),
             'ProductB': forms.TextInput(attrs={'class': 'form-control'}),

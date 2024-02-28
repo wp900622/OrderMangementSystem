@@ -24,4 +24,5 @@ urlpatterns = [
     path('', views.index),
     path('product/', views.chart),
     path('pie/', views.Pie),
+    path('orderwatch/',views.orderwatch),
 ]

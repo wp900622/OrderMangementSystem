@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block navbar %}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href=" ">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../">訂單新增</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link active" href="#">訂單查看</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../product/">數據統計</a>
+            </li>
+{% endblock %}
+{% block content%}
+    <table class="table">
+        <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">時間</th>
+              <th scope="col">訂單編號</th>
+              <th scope="col">ProductA</th>
+              <th scope="col">ProductB</th>
+              <th scope="col">ProductC</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+{% endblock %}
