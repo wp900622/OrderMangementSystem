@@ -45,5 +45,5 @@ def index(request):
     return render(request, "index.html", locals())
 
 def orderwatch(request):
-    data = models.Report.objects.all()
+    orders = models.Report.objects.all()
     return render(request, "orderwatch.html", locals())

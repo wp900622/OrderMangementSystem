@@ -28,7 +28,7 @@
       // 指定图表的配置项和数据
       var option = {
           xAxis: {
-            data: [{% for report in  reports %}'{{report.Year_Quarter}}',{% endfor %}]
+            data: [{% for report in  reports %}'{{report.Number_of_order}}',{% endfor %}]
 
           },
           yAxis: {},
@@ -44,20 +44,20 @@
             {
                     name: 'ProductA',
                       data: [{% for report in  reports %}'{{report.ProductA}}',{% endfor %}],
-                      type: 'line',
+                      type: 'bar',
                       stack: 'x'
             },
             {
               name: 'ProductB',
                       data: [{% for report in  reports %}'{{report.ProductB}}',{% endfor %}],
                       type: 'line',
-                      stack: 'x'
+                      stack: 'y'
             },
              {
                       name: 'ProductC',
                       data: [{% for report in  reports %}'{{report.ProductC}}',{% endfor %}],
                       type: 'line',
-                      stack: 'x'
+                      stack: 'z'
 
                     }
           ]

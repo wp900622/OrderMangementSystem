@@ -15,5 +15,6 @@ class Report(models.Model):
     ProductB = models.IntegerField()
     ProductC = models.IntegerField()
     date = models.DateTimeField(auto_now=True)
+    Number_of_order = models.CharField(max_length=20,null=True, default="")
     def __str__(self):
         return f'{self.Year_Quarter} - {self.ProductA}-{self.ProductB}-{self.ProductC}'

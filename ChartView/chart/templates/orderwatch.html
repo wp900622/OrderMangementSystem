@@ -26,7 +26,16 @@
             </tr>
         </thead>
         <tbody>
-
+            {% for order in orders %}
+            <tr>
+                <th scope="col">{{ order.id }}</th>
+                <th scope="col">{{ order.date }}</th>
+                <th scope="col">{{ order.Number_of_order }}</th>
+                 <th scope="col">{{ order.ProductA }}</th>
+                 <th scope="col">{{ order.ProductB }}</th>
+                 <th scope="col">{{ order.ProductC }}</th>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 {% endblock %}
