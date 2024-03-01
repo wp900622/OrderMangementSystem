@@ -28,10 +28,11 @@
       // 指定图表的配置项和数据
       var option = {
           xAxis: {
+              name: '訂單名稱',
             data: [{% for report in  reports %}'{{report.Number_of_order}}',{% endfor %}]
 
           },
-          yAxis: {},
+          yAxis: {name: '數量',},
            tooltip: {
                     trigger: 'axis',
                     axisPointer: { type: 'cross' }
