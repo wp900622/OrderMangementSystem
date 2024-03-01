@@ -14,28 +14,33 @@
             </li>
 {% endblock %}
 {% block content%}
-    <table class="table">
-        <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">時間</th>
-              <th scope="col">訂單編號</th>
-              <th scope="col">ProductA</th>
-              <th scope="col">ProductB</th>
-              <th scope="col">ProductC</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="container">
+        <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel" >
+
+        <div class="carousel-inner">
             {% for order in orders %}
-            <tr>
-                <th scope="col">{{ order.id }}</th>
-                <th scope="col">{{ order.date }}</th>
-                <th scope="col">{{ order.Number_of_order }}</th>
-                 <th scope="col">{{ order.ProductA }}</th>
-                 <th scope="col">{{ order.ProductB }}</th>
-                 <th scope="col">{{ order.ProductC }}</th>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                {% if forloop.first %}
+                    <div class="carousel-item active">
+                    <h5>123</h5>
+                {% else %}
+                     <div class="carousel-item">
+                {% endif %}
+
+                    {{ order.id }}
+                   {{ order.date }}
+                    {{ order.Number_of_order }}
+                     {{ order.ProductA }}
+                     {{ order.ProductB }}
+                    {{ order.ProductC }}
+            </div>
+            {% endfor %}
+
+
+        </div>
+
+</div>
+<script>
+
+    $('.carousel').carousel({interval: 5000,pause: "hover"})
+</script>
 {% endblock %}
