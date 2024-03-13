@@ -18,7 +18,8 @@ def barchart(request):
 
 
 def chart(request):
-    reports = models.Report.objects.all()
+    reports = models.Report.objects.all().values()
+
     producta = models.Report.objects.aggregate(Sum('ProductA')).get('ProductA__sum')
     productb = models.Report.objects.aggregate(Sum('ProductB')).get('ProductB__sum')
     productc = models.Report.objects.aggregate(Sum('ProductC')).get('ProductC__sum')

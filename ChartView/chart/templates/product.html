@@ -38,7 +38,7 @@
                     axisPointer: { type: 'cross' }
                   },
            legend: {
-                     data: ['ProductA','ProductB','ProductC']
+                     data: ['ProductA','ProductB','ProductC','total']
 
            },
           series: [
@@ -46,21 +46,31 @@
                     name: 'ProductA',
                       data: [{% for report in  reports %}'{{report.ProductA}}',{% endfor %}],
                       type: 'bar',
-                      stack: 'x'
+                      stack: 'a'
             },
             {
               name: 'ProductB',
                       data: [{% for report in  reports %}'{{report.ProductB}}',{% endfor %}],
-                      type: 'line',
+                      type: 'bar',
                       stack: 'y'
             },
              {
                       name: 'ProductC',
                       data: [{% for report in  reports %}'{{report.ProductC}}',{% endfor %}],
+                      type: 'bar',
+                      stack: 'x'
+
+                    },
+              {
+                      name: 'total',
+                     data: [{% for report in  reports %}{{ report.ProductC }}+{{ report.ProductB}}+{{ report.ProductA }},{% endfor %}],
                       type: 'line',
                       stack: 'z'
 
-                    }
+              }
+
+
+
           ]
         };
 
@@ -68,6 +78,8 @@
       // 使用刚指定的配置项和数据显示图表。
       myChart.setOption(option);
     </script>
+
+
     <div id="pie" style="width: 600px;height:400px;"></div>
         <script type="text/javascript">
           // 基于准备好的dom，初始化echarts实例

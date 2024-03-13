@@ -17,4 +17,5 @@ class Report(forms.ModelForm):
             'ProductB': forms.TextInput(attrs={'class': 'form-control'}),
             'ProductC': forms.TextInput(attrs={'class': 'form-control'}),
             'Number_of_order': forms.TextInput(attrs={'class': 'form-control'}),
+            'state': forms.TextInput(attrs={'class': 'form-control'}),
         }
